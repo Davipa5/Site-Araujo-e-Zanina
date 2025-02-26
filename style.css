@@ -112,38 +112,42 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 2rem; /* Espaçamento entre texto e imagem */
-  max-width: 1400px; /* Aumentei a largura máxima do conteúdo */
+  max-width: 1400px; /* Largura máxima do conteúdo */
   margin: 0 auto; /* Centraliza o conteúdo */
-  padding: 0 2rem; /* Aumentei o padding lateral */
+  padding: 0 2rem; /* Padding lateral */
 }
 
 .sobre-texto {
   flex: 1; /* Ocupa o espaço disponível à esquerda */
-  max-width: 800px; /* Aumentei a largura máxima do texto */
+  max-width: 800px; /* Largura máxima do texto */
 }
 
 .sobre-titulo {
-  font-size: 2.5rem;
+  font-size: 5em;
   color: #000000; /* Cor do título */
   margin-bottom: 1rem;
 }
 
 .sobre-descricao {
-  font-size: 1.1rem;
+  font-size: 2rem;
   color: #000000; /* Cor do texto */
   line-height: 1.6;
 }
 
 .sobre-imagem {
   flex: 1; /* Ocupa o espaço disponível à direita */
-  max-width: 600px; /* Aumentei a largura máxima da imagem */
+  max-width: 600px; /* Largura máxima da imagem */
+  padding: 20px; /* Espaço branco ao redor da imagem */
+  background-color: white; /* Fundo branco */
+  border: 1px solid black; /* Borda preta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-left: 50px; /* Ajuste o valor conforme necessário */
 }
 
 .sobre-imagem img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px; /* Bordas arredondadas na imagem */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: block; /* Remove espaços extras abaixo da imagem */
+  max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+  height: auto; /* Mantém a proporção da imagem */
 }
 
 /* Responsividade */
@@ -436,31 +440,46 @@ html {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px; /* Tamanho inicial do card */
-  height: 60px;
+  width: 300px; /* Largura fixa para desktop */
+  height: auto; /* Altura automática */
   background-color: #E5E1E6; /* Cor de fundo */
-  border-radius: 50%; /* Formato circular inicial */
+  border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   z-index: 1000; /* Garante que o card fique acima de outros elementos */
-}
-
-.fixed-card:hover {
-  width: 300px; /* Largura expandida */
-  height: auto; /* Altura automática para acomodar o conteúdo */
-  border-radius: 10px; /* Bordas arredondadas ao expandir */
+  opacity: 1; /* Visível por padrão */
 }
 
 .card-content {
   padding: 20px;
-  opacity: 0; /* Inicialmente invisível */
+  opacity: 1; /* Conteúdo visível por padrão */
   transition: opacity 0.3s ease-in-out;
 }
 
-.fixed-card:hover .card-content {
-  opacity: 1; /* Torna o conteúdo visível ao expandir */
+/* Estilo para dispositivos mobile */
+@media (max-width: 768px) {
+  .fixed-card {
+    width: 60px; /* Tamanho inicial do card */
+    height: 60px;
+    border-radius: 50%; /* Formato circular */
+    opacity: 1; /* Mantém visível, mas pequeno */
+  }
+
+  .card-content {
+    opacity: 0; /* Conteúdo invisível inicialmente */
+  }
+
+  .fixed-card:hover {
+    width: 300px; /* Largura expandida */
+    height: auto; /* Altura automática */
+    border-radius: 10px; /* Bordas arredondadas ao expandir */
+  }
+
+  .fixed-card:hover .card-content {
+    opacity: 1; /* Torna o conteúdo visível ao expandir */
+  }
 }
 
 .card-header {
@@ -479,7 +498,7 @@ html {
 .contact-form input,
 .contact-form textarea {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 5px;
   font-size: 0.9rem;
 }
@@ -515,7 +534,7 @@ html {
 .card-footer {
   margin-top: 10px;
   font-size: 0.8rem;
-  color: #fff;
+  color: #000000;
   text-align: center;
 }
 
