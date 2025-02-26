@@ -11,7 +11,7 @@ html {
 
 /* Estilos gerais da Navbar */
 .navbar {
-  padding: 1px 0;
+  padding: 2px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative; /* Para garantir que os elementos fiquem alinhados corretamente */
 }
@@ -22,7 +22,7 @@ html {
 }
 
 .navbar-brand img {
-  height: 100px; /* Mantém o tamanho original do logo */
+  height: 90px; /* Mantém o tamanho original do logo */
   width: auto; /* Garante que a largura seja ajustada proporcionalmente */
 }
 /* Itens clicáveis centralizados */
