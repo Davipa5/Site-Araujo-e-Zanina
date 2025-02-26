@@ -84,9 +84,9 @@
     <div class="card-content">
         <div class="card-header">
             <span>Fale Conosco</span>
-        </div>
+        </div>  
         <div class="card-body">
-            <form class="contact-form">
+          <form onsubmit="enviarWhatsApp(event)">
                 <input type="text" placeholder="Nome" required>
                 <input type="tel" placeholder="Telefone" required>
                 <input type="email" placeholder="E-mail" required>
@@ -103,6 +103,57 @@
         </div>
     </div>
 </div>
+<div class="fixed-card">
+  <div class="card-content">
+    <form onsubmit="enviarWhatsApp(event)">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="tel" id="telefone" placeholder="Telefone" required>
+      <input type="email" id="email" placeholder="E-mail" required>
+      <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+
+      <!-- Campo de seleção para a área de atuação -->
+      <select id="area" required>
+        <option value="" disabled selected>Selecione a área de atuação</option>
+        <option value="Direito Empresarial">Direito Empresarial</option>
+        <option value="Direito Familiar">Direito Familiar</option>
+        <option value="Direito Administrativo">Direito Administrativo</option>
+        <option value="Direito Civil">Direito Civil</option>
+        <option value="Direito Previdenciário">Direito Previdenciário</option>
+        <option value="Direito de Bens">Direito de Bens</option>
+        <option value="Propriedade Intelectual">Propriedade Intelectual</option>
+      </select>
+
+      <label>
+        <input type="checkbox" required>
+        Concordo com a política de dados
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function enviarWhatsApp(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
+
+  // Captura os valores dos campos do formulário
+  const nome = document.getElementById('nome').value;
+  const telefone = document.getElementById('telefone').value;
+  const email = document.getElementById('email').value;
+  const mensagem = document.getElementById('mensagem').value;
+  const area = document.getElementById('area').value; // Captura a área selecionada
+
+  // Monta o texto que será enviado
+  const texto = `Nome: ${nome}\nTelefone: ${telefone}\nE-mail: ${email}\nÁrea de Atuação: ${area}\nMensagem: ${mensagem}`;
+
+  // Cria o link do WhatsApp com o texto codificado
+  const url = `https://wa.me/556199515566?text=${encodeURIComponent(texto)}`;
+
+  // Abre o link do WhatsApp em uma nova aba
+  window.open(url, '_blank');
+}
+</script>
+
 <!-- Seção Sobre -->
 <section id="Sobre" class="sobre-section">
     <div class="container">

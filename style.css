@@ -458,6 +458,45 @@ html {
   transition: opacity 0.3s ease-in-out;
 }
 
+/* Estilos do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaçamento entre os campos */
+}
+
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 100px;
+}
+
+select {
+  appearance: none; /* Remove o estilo padrão do dropdown */
+  background-color: white;
+}
+
+button {
+  padding: 10px;
+  background-color: #6D3628; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5a2b20; /* Cor do botão ao passar o mouse */
+}
+
 /* Estilo para dispositivos mobile */
 @media (max-width: 768px) {
   .fixed-card {
