@@ -11,7 +11,7 @@ html {
 
 /* Estilos gerais da Navbar */
 .navbar {
-  padding: 10px 0;
+  padding: 1px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative; /* Para garantir que os elementos fiquem alinhados corretamente */
 }
@@ -22,9 +22,9 @@ html {
 }
 
 .navbar-brand img {
-  height: 40px;
+  height: 100px; /* Mantém o tamanho original do logo */
+  width: auto; /* Garante que a largura seja ajustada proporcionalmente */
 }
-
 /* Itens clicáveis centralizados */
 .navbar-nav.mx-auto {
   display: flex;
@@ -60,7 +60,7 @@ html {
 
 .dropdown-item:hover {
   background-color: #f8f9fa;
-  color: #CA0F0F;
+  color: #6D3628;
 }
 
 /* Ícones à direita */
@@ -103,11 +103,7 @@ html {
 
 /* Seção Sobre */
 .sobre-section {
-  background: linear-gradient(
-      to bottom, /* Direção do degradê */
-      #6D3628, /* Cor inicial (substitua pela cor que desejar) */
-      #F4F4F4 /* Cor final (branco ou outra cor) */
-  );
+  background-color: #6D3628;
   padding: 4rem 0; /* Espaçamento vertical */
 }
 
@@ -128,13 +124,13 @@ html {
 
 .sobre-titulo {
   font-size: 2.5rem;
-  color: #004750; /* Cor do título */
+  color: #000000; /* Cor do título */
   margin-bottom: 1rem;
 }
 
 .sobre-descricao {
   font-size: 1.1rem;
-  color: #333; /* Cor do texto */
+  color: #000000; /* Cor do texto */
   line-height: 1.6;
 }
 
@@ -442,7 +438,7 @@ html {
   right: 20px;
   width: 60px; /* Tamanho inicial do card */
   height: 60px;
-  background-color: #6D3628; /* Cor de fundo */
+  background-color: #E5E1E6; /* Cor de fundo */
   border-radius: 50%; /* Formato circular inicial */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -470,7 +466,7 @@ html {
 .card-header {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -495,7 +491,7 @@ html {
 
 .contact-form label {
   font-size: 0.9rem;
-  color: #fff;
+  color: #000000;
   display: flex;
   align-items: center;
   gap: 5px;
