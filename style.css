@@ -103,7 +103,7 @@ html {
 
 /* Seção Sobre */
 .sobre-section {
-  background-color: #6D3628;
+  background-color: #E5E1E6 ;
   padding: 4rem 0; /* Espaçamento vertical */
 }
 
@@ -122,10 +122,18 @@ html {
   max-width: 800px; /* Largura máxima do texto */
 }
 
+.sobre-descricao:hover {
+  color: #476A6F
+}
+
 .sobre-titulo {
   font-size: 5em;
   color: #000000; /* Cor do título */
   margin-bottom: 1rem;
+}
+
+.sobre-titulo:hover {
+  color: #476A6F
 }
 
 .sobre-descricao {
