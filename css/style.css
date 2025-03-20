@@ -505,6 +505,9 @@ button:hover {
   background-color: #5a2b20; /* Cor do botão ao passar o mouse */
 }
 
+#fixedCard {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
 /* Estilo para dispositivos mobile */
 @media (max-width: 768px) {
   .fixed-card {

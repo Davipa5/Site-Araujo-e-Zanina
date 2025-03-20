@@ -1,0 +1,191 @@
+/* Estilos gerais */
+* {
+    font-family: "Inter", sans-serif !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Seção do Artigo */
+.artigo-section {
+    padding: 4rem 0;
+    background-color: #E5E1E6;
+}
+
+.artigo-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.artigo-texto {
+    flex: 1;
+    max-width: 60%;
+}
+
+.artigo-imagem {
+    flex: 1;
+    max-width: 40%;
+}
+
+.artigo-imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.artigo-titulo {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.artigo-descricao {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Seção "Quem escreveu este artigo" */
+.autor-section {
+    padding: 4rem 0;
+    background-color: #F4F4F4;
+}
+
+.autor-titulo {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Estilos para a seção "Quem escreveu este artigo" */
+.autor-section {
+    padding: 4rem 0;
+    background-color: #F4F4F4;
+}
+
+.autor-titulo {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+
+.card .card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.cards-container .card:hover {
+    transform: scale(1.05);
+}
+
+.cards-container .card__background {
+    width: 100%; /* Ajusta a largura da imagem para o tamanho do card */
+    height: 300px; /* Altura fixa para a imagem */
+    object-fit: cover; /* A imagem vai cobrir a área sem distorcer */
+    object-position: center top; /* Ajusta a posição da imagem para o centro superior */
+}
+
+.card .card__content {
+    padding: 1rem;
+    height: 300px; /* Define uma altura fixa para a parte do conteúdo */
+    overflow-y: auto; /* Permite a rolagem vertical quando o conteúdo for maior que a altura do card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribui o conteúdo do card de forma mais equilibrada */
+}
+
+.card .card__title {
+    font-size: 1.20rem;
+    color: #6D3628;
+    margin-bottom: 10px; /* Adiciona um espaçamento abaixo do título */
+}
+
+.card .card__description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.card .card-texto {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.btn-outline-danger {
+    border-color: #6D3628;
+    color: #6D3628;
+}
+
+.btn-outline-danger:hover {
+    background-color: #847575;
+    color: #fff;
+}
+
+.card .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cards-container .col-md-4 {
+    padding-left: 10px; /* Adiciona um pequeno espaçamento à esquerda das colunas */
+    padding-right: 10px; /* Adiciona um pequeno espaçamento à direita das colunas */
+}
+
+/* Adiciona clearfix para garantir que as colunas não se sobreponham */
+.cards-container .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media (min-width: 992px) { /* Aplica a margem apenas em telas grandes */
+    .cards-container .row .col-md-4:nth-child(4),
+    .cards-container .row .col-md-4:nth-child(5) {
+        margin-left: 150px; /* Ajuste apenas para telas grandes */
+    }
+}
+
+/* Ajuste responsivo: para telas menores */
+@media (max-width: 991px) { /* Para telas médias e pequenas */
+    .cards-container .row .col-md-4:nth-child(4),
+    .cards-container .row .col-md-4:nth-child(5) {
+        margin-left: 0; /* Remove o deslocamento em telas pequenas */
+    }
+}

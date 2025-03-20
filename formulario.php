@@ -8,12 +8,15 @@ require 'PHPMailer/src/SMTP.php';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Captura e sanitiza os dados do formulário
     $nome = htmlspecialchars(trim($_POST['nome']));
-    $whatsapp = htmlspecialchars(trim($_POST['whatsapp']));
+    $telefone = htmlspecialchars(trim($_POST['telefone']));
     $email = htmlspecialchars(trim($_POST['email']));
-    $curso = htmlspecialchars(trim($_POST['curso'])); // Captura o curso selecionado
+    $mensagem = htmlspecialchars(trim($_POST['mensagem']));
+    $area = htmlspecialchars(trim($_POST['area'])); // Captura a área de atuação
 
-    if (empty($nome) || empty($whatsapp) || empty($email) || empty($curso)) {
+    // Verifica se todos os campos foram preenchidos
+    if (empty($nome) || empty($telefone) || empty($email) || empty($mensagem) || empty($area)) {
         echo "<script>
                 alert('Por favor, preencha todos os campos.');
                 window.history.back();
@@ -26,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // Configurações do servidor SMTP da HostGator
         $mail->isSMTP();
-        $mail->Host = 'mail.faculdadeguerra.edu.br'; // Servidor SMTP da HostGator
+        $mail->Host = 'e-mail do host'; // Servidor SMTP da HostGator
         $mail->SMTPAuth = true; // Autenticação habilitada
         $mail->Username = 'e-mail'; // E-mail completo
         $mail->Password = 'Senha'; // Senha do e-mail
@@ -37,18 +40,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Helo = 'dominio-site';
 
         // Remetente e destinatário
-        $mail->setFrom('e-mail', 'E-mail');
-        $mail->addAddress('e-mail', 'E-mail); // Destinatário
+        $mail->setFrom('e-mail', 'E-mail'); // E-mail do remetente
+        $mail->addAddress('e-mail', 'E-mail'); // E-mail do destinatário
 
         // Conteúdo do e-mail
         $mail->isHTML(true);
-        $mail->Subject = 'Novo Contato - Formulário de Matrícula';
+        $mail->Subject = 'Novo Contato - Formulário de Contato';
         $mail->Body = "
-            <h1>Nova Solicitação de Matrícula</h1>
+            <h1>Nova Mensagem de Contato</h1>
             <p><strong>Nome:</strong> $nome</p>
-            <p><strong>WhatsApp:</strong> $whatsapp</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Curso de Interesse:</strong> $curso</p>
+            <p><strong>Telefone:</strong> $telefone</p>
+            <p><strong>E-mail:</strong> $email</p>
+            <p><strong>Área de Atuação:</strong> $area</p>
+            <p><strong>Mensagem:</strong> $mensagem</p>
         ";
 
         // Enviar o e-mail
