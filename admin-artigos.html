@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Mesmo head das outras páginas -->
+    <title>Gestão de Artigos</title>
+</head>
+<body>
+    <!-- Navbar igual às outras páginas -->
+
+    <main class="container my-5">
+        <h2 class="mb-4">Gestão de Artigos</h2>
+        
+        <div class="card mb-5">
+            <div class="card-body">
+                <h5 class="card-title">Adicionar Novo Artigo</h5>
+                <form id="articleForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="title" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="title" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="link" class="form-label">Link</label>
+                            <input type="text" class="form-control" id="link" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="category" class="form-label">Categoria</label>
+                            <select class="form-select" id="category">
+                                <option>Propriedade Intelectual</option>
+                                <option>Direito Civil</option>
+                                <option>Direito Empresarial</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="excerpt" class="form-label">Resumo</label>
+                            <textarea class="form-control" id="excerpt" rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-brown">Publicar Artigo</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <h4 class="mb-3">Artigos Publicados</h4>
+        <div id="articlesList"></div>
+    </main>
+
+    <script src="js/articles.js"></script>
+</body>
+</html>

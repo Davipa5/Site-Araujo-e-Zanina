@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Escritório de Advocacia Jurídica, venha conhecer os seus direitos!">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="description" content="Artigos Jurídicos - Advocacia Araújo e Zanina">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/Logo e Variações_marrom_05.png">
-    <link rel="stylesheet" type="text/css" href="css/styleArticle.css">
-    <title>Artigo - Advocacia Araújo e Zanina</title>
+    <link rel="stylesheet" href="css/styleArticle.css">
+    <title>Artigos - Advocacia Araújo e Zanina</title>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Logo na esquerda -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/Logo e Variações_marrom_05.png" alt="Logo" class="img-fluid me-2" style="height: 100px;">
             </a>
-
+    
             <!-- Botão Toggler para mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+    
             <!-- Navbar -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Links centralizados -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#sobre" style="font-size:25px;">Sobre nós</a>
+                        <a class="nav-link" href="#Sobre" style="font-size:25px;">Sobre nós </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" style="font-size:25px;" id="contactDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,7 +57,7 @@
                         <a class="nav-link" href="artigo.html" style="font-size:25px;">Artigos</a>
                     </li>
                 </ul>
-
+    
                 <!-- Ícones à direita (independentes) -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -80,97 +79,100 @@
             </div>
         </div>
     </nav>
+    <!-- Conteúdo Principal -->
+    <main class="container my-5 py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 mb-3">Artigos Jurídicos</h1>
+            <p class="lead text-muted">Conteúdo especializado e atualizado sobre direito</p>
+        </header>
 
-    <!-- Seção do Artigo -->
-    <section id="Artigo" class="artigo-section">
-        <div class="container">
-            <div class="artigo-content">
-                <!-- Texto à esquerda -->
-                <div class="artigo-texto">
-                    <h2 class="artigo-titulo">Artigo: Direito Previdenciário</h2>
-                    <p class="artigo-descricao">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p class="artigo-descricao">
-                        Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    </p>
-                    <p class="artigo-descricao">
-                        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
-                    </p>
-                </div>
-                <!-- Imagem à direita -->
-                <div class="artigo-imagem">
-                    <img src="images/sobreNos.png" alt="Imagem do Artigo">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção "Quem escreveu este artigo" -->
-    <section id="Autor" class="autor-section">
-        <div class="container">
-            <h2 class="autor-titulo">Quem escreveu este artigo</h2>
-            <div class="cards-container">
-                <article class="card">
-                    <img class="card__background" src="images/Captura de tela 2025-03-06 181040.png" alt="Imagem 1" width="1920" height="2193" />
-                    <div class="card__content | flow">
-                        <div class="card__content--container | flow">
-                            <h2 class="card__title">Breno Kazuo</h2>
-                            <p class="card__description">Ele e muito daora mas não escreveu isso.</p>
+        <!-- Grid de Artigos -->
+        <div class="row g-4" id="articles-container">
+            <!-- Artigo 1 -->
+            <div class="col-lg-4 col-md-6">
+                <article class="card h-100 article-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-brown">Propriedade Intelectual</span>
+                            <small class="text-muted">15/03/2024</small>
                         </div>
+                        <h3 class="h5 card-title">Receitas e Pratos Culinários como Propriedade Intelectual</h3>
+                        <p class="card-text">Estudo sobre a possibilidade de proteção jurídica de criações culinárias no ordenamento brasileiro.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="artigo-receitas.html" class="btn btn-outline-brown">Ler Artigo</a>
                     </div>
                 </article>
-
             </div>
+            <!-- Mais artigos podem ser adicionados aqui -->
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
-            <div class="row text-center text-lg-start">
-                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4" style="color: #6D3628;">Sobre Nós</h5>
-                    <p><a href="#" class="text-white text-decoration-none">Quem somos nós</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Serviço à comunidade</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Documentos</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Nossa equipe</a></p>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4" style="color: #6D3628;">Áreas de atuação</h5>
-                    <p><a href="direito.php" class="text-white text-decoration-none">Direito empresarial</a></p>
-                    <p><a href="tsp.php" class="text-white text-decoration-none">Direito Civil</a></p>
-                    <p><a href="pos.php" class="text-white text-decoration-none">Direito administrativo</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Direito Previdenciário</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Direito de Béns</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Propriedade Intelectual</a></p>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4" style="color: #6D3628;">Acesso Rápido</h5>
-                    <p><a href="#" class="text-white text-decoration-none">Whatsapp</a></p>
-                    <p><a href="#" class="text-white text-decoration-none">Instagram</a></p>
-                </div>
-                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase mb-4" style="color: #6D3628;">Escritório</h5>
-                    <p><strong>Endereço:</strong><br> --</p>
-                    <p><strong>Telefone:</strong> (--) 0000-0000</p>
-                    <p><strong>Wpp:</strong> (--) 0 0000-0000</p>
-                    <p><strong>Email:</strong> ---</p>
-                </div>
+          <div class="row text-center text-lg-start">
+            <!-- Faculdade Guerra -->
+           <!--
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+              <img src="images/Logo_Guerra_Red.png" alt="Faculdade Guerra" class="img-fluid mb-3" style="max-width: 60%;">
+              <img src="images/tag01.png" alt="Tagline" class="img-fluid" style="max-width: 70%;">
             </div>
-            <hr class="bg-white my-3">
-            <div class="row">
-                <div class="col text-center">
-                    <p class="mb-0">Copyright 2025 All Rights Reserved by:
-                        <a href="#" class="text-decoration-none" style="color: #6D3628;">
-                            <strong>Advocacia Araujo e Zanina</strong>
-                        </a>
-                    </p>
-                </div>
+            !-->
+      
+            <!-- Sobre Nós -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4" style="color: #6D3628;">Sobre Nós</h5>
+              <p><a href="#" class="text-white text-decoration-none">Quem somos nós</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Serviço à comunidade</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Documentos</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Nossa equipe</a></p>
             </div>
+      
+            <!-- Nossos Cursos -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4" style="color: #6D3628;">Areas de atuação</h5>
+              <p><a href="direito.php" class="text-white text-decoration-none">Direito empresarial</a></p>
+              <p><a href="tsp.php" class="text-white text-decoration-none">Direito Civil</a></p>
+              <p><a href="pos.php" class="text-white text-decoration-none">Direito administrativo</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Direito Previdenciário</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Direito de Béns</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Propriedade Intelectual</a></p>
+            </div>
+      
+            <!-- Acesso Rápido -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4" style="color: #6D3628;">Acesso Rápido</h5>
+              <p><a href="#" class="text-white text-decoration-none">Whatsapp</a></p>
+              <p><a href="#" class="text-white text-decoration-none">Instagram</a></p>
+            </div>
+      
+            <!-- Contato -->
+            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+              <h5 class="text-uppercase mb-4" style="color: #6D3628;">Escritório</h5>
+              <p><strong>Endereço:</strong><br> --</p>
+              <p><strong>Telefone:</strong> (--) 0000-0000  </p>
+              <p><strong>Wpp:</strong> (--) 0 0000-0000</p>
+              <p><strong>Email:</strong> ---</p>
+            </div>
+          </div>
+      
+          <!-- Linha Divisória -->
+          <hr class="bg-white my-3">
+      
+          <!-- Copyright -->
+          <div class="row">
+            <div class="col text-center">
+              <p class="mb-0">Copyright 2025 All Rights Reserved by:
+                <a href="#" class="text-decoration-none" style="color: #6D3628;">
+                  <strong>Advocacia Araujo e Zanina</strong>
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/articles.js"></script>
 </body>
 </html>
