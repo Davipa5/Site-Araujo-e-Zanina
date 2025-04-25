@@ -1,8 +1,8 @@
-* {
-  font-family: "Inter", sans-serif !important; /* Fonte global */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  line-height: 1.7;
 }
 
 html {
@@ -131,11 +131,11 @@ html {
 }
 
 .sobre-titulo:hover {
-  color: #476A6F
+  color: #847575
 }
 
 .sobre-descricao {
-  font-size: 2rem;
+  font-size: 30px;
   color: #000000; /* Cor do texto */
   line-height: 1.6;
 }
@@ -186,7 +186,7 @@ html {
   margin: 0 auto; /* Centraliza o conteúdo */
   padding: 20px 0; /* Ajuste do espaçamento interno */
   text-align: center; /* Centraliza o texto dentro do banner */
-  background-color: #004750; /* Cor de fundo vermelho */
+  background-color: #847575; /* Cor de fundo vermelho */
   color: #FFFFFF; /* Texto branco */
   font-size: 42px; /* Tamanho do texto */
   font-weight: bold; /* Negrito */
@@ -247,11 +247,7 @@ html {
 
 /* CARD COMPONENT */
 .section-card {
-  background: linear-gradient(
-      to bottom, /* Direção do gradiente */
-      #476A6F 30%, /* Parte superior com 40% vermelho */
-      #F4F4F4 40% /* Parte inferior com branco */
-  );
+  background-color: #F8F9FA ;
 }
 
 .cards-container {
@@ -436,7 +432,7 @@ html {
 .horizontal-line {
   width: 100%; /* Ocupa toda a largura da tela */
   height: 4px; /* Altura da linha */
-  background: linear-gradient(to right, #476A6F, #FFF5F5); /* Degradê da linha */
+  background: linear-gradient(to right, #847575, #FFF5F5); /* Degradê da linha */
   margin: 0px 0; /* Espaçamento acima e abaixo da linha */
   border: none; /* Remove qualquer borda padrão */
 } 
@@ -566,7 +562,7 @@ button:hover {
 
 .contact-form button {
   padding: 10px;
-  background-color: #004750;
+  background-color: #847575;
   color: #fff;
   border: none;
   border-radius: 5px;

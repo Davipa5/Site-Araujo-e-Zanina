@@ -30,6 +30,16 @@ h1, h2, h3, h4 {
     width: auto;
 }
 
+.navbar-nav.mx-auto {
+    display: flex;
+    justify-content: center; /* Centraliza os itens */
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os itens */
+    position: absolute; /* Posiciona os itens no centro absoluto */
+    left: 50%; /* Move para o meio */
+    transform: translateX(-50%); /* Ajusta o alinhamento */
+}
+
 .social-icon {
     width: 32px;
     height: 32px;
