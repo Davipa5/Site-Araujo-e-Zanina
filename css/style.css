@@ -1,12 +1,17 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: var(--text-color);
   line-height: 1.7;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: var(--dark-bg);
 }
 
 /* Estilos gerais da Navbar */
@@ -103,80 +108,102 @@ html {
 
 /* Seção Sobre */
 .sobre-section {
-  background-color: #E5E1E6 ;
-  padding: 4rem 0; /* Espaçamento vertical */
+  background-color: #E5E1E6;
+  padding: 4rem 0;
+  overflow: hidden;
 }
 
 .sobre-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem; /* Espaçamento entre texto e imagem */
-  max-width: 1400px; /* Largura máxima do conteúdo */
-  margin: 0 auto; /* Centraliza o conteúdo */
-  padding: 0 2rem; /* Padding lateral */
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .sobre-texto {
-  flex: 1; /* Ocupa o espaço disponível à esquerda */
-  max-width: 800px; /* Largura máxima do texto */
+  text-align: center;
+  max-width: 800px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
 
-
+.sobre-texto.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .sobre-titulo {
-  font-size: 5em;
-  color: #000000; /* Cor do título */
+  font-size: 4em;
+  color: #000000;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
+
+.sobre-titulo.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .sobre-titulo:hover {
-  color: #847575
+  color: #847575;
+  transform: scale(1.02);
 }
 
 .sobre-descricao {
-  font-size: 30px;
-  color: #000000; /* Cor do texto */
+  font-size: 1.5rem;
+  color: #000000;
   line-height: 1.6;
+  opacity: 0;
+  transition: all 0.8s ease-out 0.2s;
+}
+
+.sobre-descricao.visible {
+  opacity: 1;
 }
 
 .sobre-imagem {
-  flex: 1; /* Ocupa o espaço disponível à direita */
-  max-width: 600px; /* Largura máxima da imagem */
-  padding: 20px; /* Espaço branco ao redor da imagem */
-  background-color: white; /* Fundo branco */
-  border: 1px solid black; /* Borda preta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin-left: 50px; /* Ajuste o valor conforme necessário */
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-out;
 }
 
-.sobre-imagem img {
-  display: block; /* Remove espaços extras abaixo da imagem */
-  max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
-  height: auto; /* Mantém a proporção da imagem */
+.sobre-imagem.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-  .sobre-content {
-      flex-direction: column; /* Empilha texto e imagem em telas menores */
-      text-align: center; /* Centraliza o texto */
-  }
-
-  .sobre-texto {
-      max-width: 100%; /* Ocupa toda a largura */
-  }
-
-  .sobre-imagem {
-      max-width: 100%; /* Ocupa toda a largura */
-  }
-
   .sobre-titulo {
-      font-size: 2rem; /* Reduz o tamanho do título */
+    font-size: 2.5rem;
   }
-
+  
   .sobre-descricao {
-      font-size: 1rem; /* Reduz o tamanho do texto */
+    font-size: 1.1rem;
+  }
+}
+
+/* Animação */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -583,19 +610,101 @@ button:hover {
 }
 
 /* Seção de Contato */
-.contato-section {
+#Contato.section-matricula {
+  background-color: var(--dark-bg);
+  color: white;
   padding: 4rem 0;
-  background-color: #F4F4F4;
-  text-align: center;
 }
 
-.contato-section h2 {
-  font-size: 2.5rem;
-  color: #6D3628;
+#Contato .form-control,
+#Contato .form-select,
+#Contato textarea {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+#Contato .form-control:focus,
+#Contato .form-select:focus,
+#Contato textarea:focus {
+  background-color: white;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(109, 54, 40, 0.25);
+}
+
+#Contato h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: white;
   margin-bottom: 1rem;
 }
 
-.contato-section p {
-  font-size: 1.1rem;
-  color: #333;
+#Contato p {
+  font-size: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+#Contato .form-label {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+#Contato .form-check-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#Contato .btn-light {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+#Contato .btn-light:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+#Contato textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  #Contato .row {
+    flex-direction: column;
+  }
+  
+  #Contato h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  #Contato p {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  #Contato .col-md-5 {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Correção de typo no HTML (recomendo alterar no HTML também) */
+#Contato option[value="Adiministrativo"]::after {
+  content: " (corrigir para Administrativo)";
+  color: #ff4444;
+  font-size: 0.8em;
 }
