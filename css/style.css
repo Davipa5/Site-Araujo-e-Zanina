@@ -17,6 +17,7 @@ h1, h2, h3, h4 {
 /* Estilos gerais da Navbar */
 .navbar {
   padding: 2px 0;
+  z-index: 1030;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative; /* Para garantir que os elementos fiquem alinhados corretamente */
 }
@@ -50,9 +51,17 @@ h1, h2, h3, h4 {
 .nav-link:hover {
   color: #6D3628;
 }
+.navbar-collapse {
+  flex-grow: 0 !important; /* Impede expansão excessiva */
+  width: auto !important;
+}
 
+.navbar-toggler {
+  order: 3; /* Mantém o hamburger à direita */
+}
 /* Dropdown */
 .dropdown-menu {
+  z-index: 1031 !important;
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -84,7 +93,55 @@ h1, h2, h3, h4 {
 .navbar-nav.ms-auto .nav-link:hover img {
   transform: scale(1.1);
 }
+@media (max-width: 992px) {
+  .navbar-nav.ms-auto {
+    order: 2; /* Mantém ícones antes do hamburger */
+  }
+}
+/* ============ NOTEBOOKS (769px - 1200px) ============ */
+@media (min-width: 769px) and (max-width: 1200px) {
+  /* Ajustes específicos para os ícones da direita */
+  .navbar-nav.ms-auto {
+    margin-left: 0 !important;
+    position: relative;
+    z-index: 1032;
+    flex-shrink: 0; /* Impede que os ícones encolham */
+    gap: 10px; /* Reduz espaçamento entre ícones */
+  }
 
+  .navbar-nav.ms-auto .nav-link img {
+    height: 20px; /* Reduz tamanho dos ícones */
+  }
+
+  /* Ajuste na navegação central */
+  .navbar-nav.mx-auto {
+    left: 45%; /* Ajuste fino de posicionamento */
+    gap: 12px; /* Reduz espaço entre itens */
+  }
+
+  /* Ajuste de container para evitar sobreposição */
+  .navbar > .container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  /* Garante espaço mínimo para logo */
+  .navbar-brand {
+    min-width: 120px;
+    margin-right: 0;
+  }
+}
+
+/* Ajustes específicos para telas largas (acima de 992px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .navbar-nav.mx-auto {
+    gap: 18px; /* Espaçamento intermediário */
+  }
+
+  .sobre-content {
+    gap: 1.5rem; /* Reduz espaçamento interno */
+  }
+}
 /* Responsividade */
 @media (max-width: 768px) {
   .navbar-nav.mx-auto {
