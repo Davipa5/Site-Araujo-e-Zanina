@@ -18,54 +18,76 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-xl">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/Logo e Variações_marrom_05.png" alt="Logo" class="logo-img">
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html#sobre">Sobre Nós</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Áreas de Atuação
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="contactDropdown3">
-                            <div class="dropdown-columns">
-                                <div class="column">
-                                    <li><a class="dropdown-item" href="#">Empresarial</a></li>
-                                    <li><a class="dropdown-item" href="#">Direito Familiar</a></li>
-                                    <li><a class="dropdown-item" href="#">Adiministrativo</a></li>
-                                    <li><a class="dropdown-item" href="#">Direito Civil</a></li>
-                                    <li><a class="dropdown-item" href="#">Previdenciário</a></li>
-                                    <li><a class="dropdown-item" href="#">Bens</a></li>
-                                    <li><a class="dropdown-item" href="#">Propriedade Intelectual</a></li>
-                                </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Logo na esquerda -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="images/Logo e Variações_marrom_05.png" alt="Logo" class="img-fluid me-2" style="height: 100px;">
+        </a>
+
+        <!-- Botão Toggler para mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Links centralizados -->
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#Sobre" style="font-size:25px;">Sobre nós </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" style="font-size:25px;" id="contactDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Áreas de atuação
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="contactDropdown3">
+                        <div class="dropdown-columns">
+                            <div class="column">
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Empresarial</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Direito Familiar</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Adiministrativo</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Direito Civil</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Previdenciário</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Bens</a></li>
+                                <li><a class="dropdown-item" href="areas-atuacao.html">Propriedade Intelectual</a></li>
                             </div>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#Profissionais">Profissionais</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Contato">Contato</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="artigo.html">Artigos</a></li>
-                </ul>
-                
-                <div class="d-flex gap-3">
-                    <a href="https://wa.me/5561981780313" target="_blank">
-                        <img src="images/wpp.png" alt="WhatsApp" class="social-icon">
+                        </div>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Profissionais" style="font-size:25px;">Profissionais</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contato" style="font-size:25px;">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artigo.html" style="font-size:25px;">Artigos</a>
+                </li>
+            </ul>
+
+            <!-- Ícones à direita (independentes) -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://wa.me/5561981780313" target="_blank">
+                        <img src="images/wpp.png" alt="WhatsApp" style="height: 35px;">
                     </a>
-                    <a href="https://www.instagram.com/araujozanina.adv" target="_blank">
-                        <img src="images/instagram.png" alt="Instagram" class="social-icon">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/araujozanina.adv?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                        <img src="images/instagram.png" alt="Instagram" style="height: 35px;">
                     </a>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="images/telefone.png" alt="Facebook" style="height: 35px;">
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Conteúdo Principal -->
     <main class="container-xl mt-5 pt-5">
