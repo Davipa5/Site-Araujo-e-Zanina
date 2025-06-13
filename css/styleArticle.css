@@ -118,3 +118,84 @@ section[id] {
         margin: 0 auto 1.5rem;
     }
 }
+
+
+/* ================================== */
+/* ESTILOS DO FOOTER         */
+/* ================================== */
+
+/* Container principal do footer */
+footer.bg-dark {
+    background-color: #212529 !important; /* Cor de fundo escura */
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.7); /* Cor de texto padrão mais suave */
+}
+
+/* Títulos das seções (Sobre Nós, Contato, etc.) */
+footer h5 {
+    font-family: 'Merriweather', serif;
+    color: #6D3628; /* Cor marrom, conforme solicitado */
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Links do footer */
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Efeito hover para os links */
+footer a:hover {
+    color: #ffffff; /* Cor branca ao passar o mouse */
+    padding-left: 5px; /* Leve deslocamento para a direita */
+}
+
+/* Listas de links */
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.75rem;
+}
+
+/* Parágrafos da seção de contato */
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Links de redes sociais */
+footer .d-flex a {
+    font-size: 1.1rem; /* Tamanho da fonte dos links de redes sociais */
+    font-weight: bold;
+}
+
+/* Linha divisória */
+footer hr {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Texto de copyright */
+footer .small {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+/* Ajustes para telas menores (mobile) */
+@media (max-width: 768px) {
+    footer {
+        text-align: center; /* Centraliza todo o texto no mobile */
+    }
+
+    footer .d-flex {
+        justify-content: center; /* Centraliza os ícones de redes sociais */
+    }
+}
