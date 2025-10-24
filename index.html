@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Escritorio de Advocacia Juridica, venha conhecer os seus direitos!">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Advocacia - Aráujo e Zanina</title>
     <link rel="icon" type="image/Logo e Variações_marrom_05" href="images/Logo e Variações_marrom_05.png">
 </head>
 <body>
-<!-- Navbar -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <!-- Logo na esquerda -->
         <a class="navbar-brand d-flex align-items-center" href="index.html">
             <img src="images/Logo e Variações_marrom_05.png" alt="Logo" class="img-fluid me-2" style="height: 100px;">
         </a>
 
-        <!-- Botão Toggler para mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navbar -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Links centralizados -->
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#Sobre" style="font-size:25px;">Sobre nós </a>
+                    <a class="nav-link" href="#sobre-escritorio" style="font-size:25px;">Sobre nós </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" style="font-size:25px;" id="contactDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,14 +53,16 @@
                     <a class="nav-link" href="#Profissionais" style="font-size:25px;">Profissionais</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Contato" style="font-size:25px;">Contato</a>
+                    <a class="nav-link" href="#na-midia" style="font-size:25px;">Na Mídia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="artigo.html" style="font-size:25px;">Artigos</a>
+                    <a class="nav-link" href="#artigos" style="font-size:25px;">Artigos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contato" style="font-size:25px;">Contato</a>
                 </li>
             </ul>
 
-            <!-- Ícones à direita (independentes) -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="https://wa.me/5561981780313" target="_blank">
@@ -81,110 +83,14 @@
         </div>
     </div>
 </nav>
-<div id="fixed-card" class="fixed-card" onclick="scrollToContato()">
-  <div class="card-content">
-      <div class="card-header">
-          <span>Fale Conosco</span>
-      </div>  
-      <div class="card-body">
-        <form action="formulario.php" method="POST">
-              <input type="text" name="nome" placeholder="Nome" required>
-              <input type="tel" name="telefone" placeholder="Telefone" required>
-              <input type="email" name="email" placeholder="E-mail" required>
-              <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-              <label>
-                  <input type="checkbox" name="politica" required>
-                  Concordo com a política de dados
-              </label>
-              <button type="submit">Enviar</button>
-          </form>
-      </div>
-      <div class="card-footer">
-          <small>Telefone: (61) 98178-0313</small>
-      </div>
-  </div>
-</div>
-<div class="fixed-card">
-<div class="card-content">
-  <form action="formulario.php" method="POST">
-    <input type="text" id="nome" name="nome" placeholder="Nome" required>
-    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
-    <input type="email" id="email" name="email" placeholder="E-mail" required>
-    <textarea id="mensagem" name="mensagem" placeholder="Mensagem" required></textarea>
 
-    <!-- Campo de seleção para a área de atuação -->
-    <select id="area" name="area" required>
-      <option value="" disabled selected>Selecione a área de atuação</option>
-      <option value="Direito Empresarial">Direito Empresarial</option>
-      <option value="Direito Familiar">Direito Familiar</option>
-      <option value="Direito Administrativo">Direito Administrativo</option>
-      <option value="Direito Civil">Direito Civil</option>
-      <option value="Direito Previdenciário">Direito Previdenciário</option>
-      <option value="Direito de Bens">Direito de Bens</option>
-      <option value="Propriedade Intelectual">Propriedade Intelectual</option>
-    </select>
-
-    <label>
-      <input type="checkbox" name="politica" required>
-      Concordo com a política de dados
-    </label>
-    <button type="submit">Enviar</button>
-  </form>
-</div>
-</div>
-
-<section id="quem-somos" class="py-5 bg-light">
+<section id="sobre-escritorio" class="hero-section d-flex align-items-center justify-content-center text-center">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <h2 class="display-5 mb-3" style="color: #6D3628;">Nossa Equipe</h2>
-                <p class="lead">Conheça nossos profissionais especializados</p>
-            </div>
-        </div>
-
-        <div class="row align-items-center mb-5">
-            <div class="col-md-5 text-center">
-                <img src="images/Araújo.png" alt="Araujo" 
-                     class="img-fluid rounded-circle shadow-lg" 
-                     style="max-width: 350px;">
-            </div>
-            <div class="col-md-7 text-center text-md-start">
-                <h3 class="mb-3" style="color: #6D3628;">Araújo</h3>
-                <p class="text-muted mb-2">Irmão do Davi ✌️</p>
-                <p class="text-secondary">
-                    [Texto biográfico] Formado em Direito pela Universidade XYZ com especialização em Direito Empresarial. 
-                    Atua há mais de 15 anos em casos complexos de direito corporativo, com ampla experiência em 
-                    fusões e aquisições.
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
-        <div class="row align-items-center flex-md-row-reverse">
-            <div class="col-md-5 text-center">
-                <img src="images/zanina.png" alt="Zanina" 
-                     class="img-fluid rounded-circle shadow-lg" 
-                     style="max-width: 350px;">
-            </div>
-            <div class="col-md-7 text-center text-md-start">
-                <h3 class="mb-3" style="color: #6D3628;">Zanina</h3>
-                <p class="text-muted mb-2">Amigo do irmão do Davi ✌️</p>
-                <p class="text-secondary">
-                    [Texto biográfico] Mestre em Direito Civil pela Universidade ABC, com ênfase em Direito de Família 
-                    e Sucessões. Possui ampla experiência em mediação de conflitos e atuação estratégica em casos 
-                    de alto impacto social.
-                </p>
-            </div>
-        </div>
+        <h1 class="display-3 fw-bold text-white mb-3">ARAÚJO & ZANINA</h1>
+        <p class="lead fs-4 text-white mb-4">Assessoria jurídica especializada para proteger seus interesses.</p>
+        <a href="#Contato" class="btn btn-lg btn-outline-light" style="border-width: 2px; font-weight: 600;">Entre em Contato</a>
     </div>
 </section>
-<div class="horizontal-line"></div>
-
 
 <section id="areas-atuacao" class="areas-atuacao-section py-5 bg-light">
     <div class="container">
@@ -206,13 +112,7 @@
                 <p class="text-area-desc">Consultoria jurídica para empresas, contratos, fusões e aquisições.</p>
             </div>
         </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
+        <div class="row mb-5"><div class="col-12"><hr class="w-25 mx-auto" style="border-color: #6D3628;"></div></div>
         <div class="row align-items-center flex-md-row-reverse mb-5 gy-4">
             <div class="col-md-6">
                 <img src="images/direito-familiar.jpeg" alt="Direito Familiar" class="img-fluid rounded shadow-lg">
@@ -224,85 +124,7 @@
                 <p class="text-area-desc">Soluções em divórcios, guarda, pensão alimentícia e inventários.</p>
             </div>
         </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
-        <div class="row align-items-center mb-5 gy-4">
-            <div class="col-md-6">
-                <img src="images/Direito-adm.jpg" alt="Direito Administrativo" class="img-fluid rounded shadow-lg">
-            </div>
-            <div class="col-md-6 text-center text-md-start">
-                <h3 class="mb-3 text-area-titulo">
-                    <a href="areas-atuacao.html#Administrativo" class="link-area">Direito Administrativo</a>
-                </h3>
-                <p class="text-area-desc">Atuação perante órgãos públicos, licitações e processos administrativos.</p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
-        <div class="row align-items-center flex-md-row-reverse mb-5 gy-4">
-            <div class="col-md-6">
-                <img src="images/direito-civil.jpeg" alt="Direito Civil" class="img-fluid rounded shadow-lg">
-            </div>
-            <div class="col-md-6 text-center text-md-start">
-                <h3 class="mb-3 text-area-titulo">
-                    <a href="areas-atuacao.html#Civil" class="link-area">Direito Civil</a>
-                </h3>
-                <p class="text-area-desc">Responsabilidade civil, contratos, indenizações e direitos do consumidor.</p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
-        <div class="row align-items-center mb-5 gy-4">
-            <div class="col-md-6">
-                <img src="images/Direito-Previdenciário.jpeg" alt="Direito Previdenciário" class="img-fluid rounded shadow-lg">
-            </div>
-            <div class="col-md-6 text-center text-md-start">
-                <h3 class="mb-3 text-area-titulo">
-                    <a href="areas-atuacao.html#Previdenciário" class="link-area">Direito Previdenciário</a>
-                </h3>
-                <p class="text-area-desc">Aposentadorias, revisões de benefícios e processos contra o INSS.</p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
-        <div class="row align-items-center flex-md-row-reverse mb-5 gy-4">
-            <div class="col-md-6">
-                <img src="images/direito-bens.webp" alt="Direito de Bens" class="img-fluid rounded shadow-lg">
-            </div>
-            <div class="col-md-6 text-center text-md-start">
-                <h3 class="mb-3 text-area-titulo">
-                    <a href="areas-atuacao.html#Bens" class="link-area">Direito de Bens</a>
-                </h3>
-                <p class="text-area-desc">Usucapião, regularização de imóveis e disputas patrimoniais.</p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <div class="col-12">
-                <hr class="w-25 mx-auto" style="border-color: #6D3628;">
-            </div>
-        </div>
-
+        <div class="row mb-5"><div class="col-12"><hr class="w-25 mx-auto" style="border-color: #6D3628;"></div></div>
         <div class="row align-items-center gy-4">
             <div class="col-md-6">
                 <img src="images/propriedade-intelectual.jpg" alt="Propriedade Intelectual" class="img-fluid rounded shadow-lg">
@@ -317,134 +139,215 @@
     </div>
 </section>
 
+<section id="missao-valores" class="missao-valores-section py-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="valor-item p-4">
+                    <i class="bi bi-bullseye display-4 mb-3" style="color: #6D3628;"></i>
+                    <h3 class_ ="h4 mb-2" style="color: #6D3628;">Missão</h3>
+                    <p class="text-muted">[Texto sobre a missão do escritório. Ex: Prestar serviços jurídicos de excelência, com foco na solução...]</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="valor-item p-4">
+                    <i class="bi bi-eye display-4 mb-3" style="color: #6D3628;"></i>
+                    <h3 class="h4 mb-2" style="color: #6D3628;">Visão</h3>
+                    <p class="text-muted">[Texto sobre a visão. Ex: Ser referência nacional em advocacia empresarial, reconhecido pela...]</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="valor-item p-4">
+                    <i class="bi bi-gem display-4 mb-3" style="color: #6D3628;"></i>
+                    <h3 class="h4 mb-2" style="color: #6D3628;">Valores</h3>
+                    <p class="text-muted">[Texto sobre os valores. Ex: Ética, Transparência, Comprometimento, Inovação e Foco no Cliente.]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Profissionais" class="py-5 bg-light"> 
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 mb-3" style="color: #6D3628;">Nossa Equipe</h2>
+                <p class="lead">Conheça nossos profissionais especializados</p>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-5 text-center">
+                <img src="images/Araújo.png" alt="Araujo" class="img-fluid rounded-circle shadow-lg" style="max-width: 350px;">
+            </div>
+            <div class="col-md-7 text-center text-md-start">
+                <h3 class="mb-3" style="color: #6D3628;">Araújo</h3>
+                <p class="text-muted mb-2">Irmão do Davi ✌️</p>
+                <p class="text-secondary">
+                    [Texto biográfico] Formado em Direito pela Universidade XYZ com especialização em Direito Empresarial. 
+                    Atua há mais de 15 anos em casos complexos de direito corporativo...
+                </p>
+            </div>
+        </div>
+        <div class="row mb-5"><div class="col-12"><hr class="w-25 mx-auto" style="border-color: #6D3628;"></div></div>
+        <div class="row align-items-center flex-md-row-reverse">
+            <div class="col-md-5 text-center">
+                <img src="images/zanina.png" alt="Zanina" class="img-fluid rounded-circle shadow-lg" style="max-width: 350px;">
+            </div>
+            <div class="col-md-7 text-center text-md-start">
+                <h3 class="mb-3" style="color: #6D3628;">Zanina</h3>
+                <p class="text-muted mb-2">Amigo do irmão do Davi ✌️</p>
+                <p class="text-secondary">
+                    [Texto biográfico] Mestre em Direito Civil pela Universidade ABC, com ênfase em Direito de Família 
+                    e Sucessões. Possui ampla experiência...
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="na-midia" class="na-midia-section py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 mb-3" style="color: #6D3628;">Na Mídia</h2>
+                <p class="lead">Nossa presença e reconhecimento no mercado.</p>
+            </div>
+        </div>
+        <div class="logo-grid">
+            <img src="images/instagram.png" alt="Logo Mídia 1">
+            <img src="images/sla.jpeg" alt="Logo Mídia 2">
+            <img src="images/Araújo.png" alt="Logo Mídia 3">
+            <img src="images/zanina.png" alt="Logo Mídia 4">
+            <img src="images/timpano.png" alt="Logo Mídia 5">
+        </div>
+    </div>
+</section>
+
+<section id="artigos" class="artigos-section py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 mb-3" style="color: #6D3628;">Artigos Recentes</h2>
+                <p class="lead">Mantenha-se informado com nossas publicações.</p>
+            </div>
+        </div>
+
+        <div class="row g-4" id="artigos-container">
+            </div>
+    </div>
+</section>
+
 <div class="horizontal-line"></div>
 
-<!-- Seção Matrícula -->
-  <section id="Contato" class="section-matricula py-5" style="background-color: #333; color: white;">
-      <div class="container">
+<section id="Contato" class="section-matricula py-5" style="background-color: #333; color: white;">
+    <div class="container">
         <div class="row align-items-center justify-content-between">
-          <!-- Texto -->
-          <div class="col-md-6 mb-4 mb-md-0">
-            <h1 class="fw-bold mb-3">
-              <span class="text-uppercase text-white">Entre em contato!</span>
-            </h1>
-            <p class="fst-italic mb-4">
-              Fique por dentro das oportunidades incríveis <br>
-              que temos para você.
-            </p>
-          </div>
-          <!-- Formulário -->
-          <div class="col-md-5">
-            <form action="formulario.php" method="POST">
-              <!-- Nome -->
-              <div class="mb-3">
-                <input type="text" name="nome" class="form-control form-control-lg" placeholder="Seu nome" required />
-              </div>
-              <!-- WhatsApp -->
-              <div class="mb-3">
-                <input type="text" name="whatsapp" class="form-control form-control-lg" placeholder="Seu WhatsApp com DDD" required />
-              </div>
-              <!-- E-mail -->
-              <div class="mb-3">
-                <input type="email" name="email" class="form-control form-control-lg" placeholder="Seu e-mail" required />
-              </div>
-              <textarea id="mensagem" name="mensagem" placeholder="Mensagem" required></textarea>
-              <!-- Cursos Disponíveis -->
-              <div class="mb-3">
-                <label for="cursos" class="form-label">Escolha a área correspondente ao seu problema:</label>
-                <select class="form-select form-select-lg" name="curso" id="cursos" required>
-                  <option value="" disabled selected>Selecione uma área</option>
-                  <option value="Empresarial">Empresarial</option>
-                  <option value="Direito Familiar">Direito Familiar</option>
-                  <option value="Adiministrativo">Adiministrativo</option>
-                  <option value="Direito Civil">Direito Civil</option>
-                  <option value="Previdenciário">Previdenciário</option>
-                  <option value="Bens">Bens</option>
-                  <option value="Propriedade Intelectual">Propriedade Intelectual</option>
-    
-                  <!-- Espaço para mais opções no futuro -->
-                </select>
-              </div>
-              <!-- Checkbox Política de Privacidade -->
-              <div class="form-check mb-3">
-                <input type="checkbox" name="aceite_politica" class="form-check-input" id="privacy-policy" required />
-                <label class="form-check-label" for="privacy-policy">
-   Concordo com a Política de Privacidade.
-                </label>
-              </div>
-              <!-- Botão -->
-              <button type="submit" class="btn btn-light btn-lg w-100 fw-bold">ENVIAR</button>
-            </form>
-          </div>
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h1 class="fw-bold mb-3">
+                    <span class="text-uppercase text-white">Entre em contato!</span>
+                </h1>
+                <p class="fst-italic mb-4">
+                    Fique por dentro das oportunidades incríveis <br>
+                    que temos para você.
+                </p>
+            </div>
+            <div class="col-md-5">
+                <form action="formulario.php" method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="nome" class="form-control form-control-lg" placeholder="Seu nome" required />
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="whatsapp" class="form-control form-control-lg" placeholder="Seu WhatsApp com DDD" required />
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Seu e-mail" required />
+                    </div>
+                    <textarea id="mensagem" name="mensagem" placeholder="Mensagem" required></textarea>
+                    <div class="mb-3">
+                        <label for="cursos" class="form-label">Escolha a área correspondente ao seu problema:</label>
+                        <select class="form-select form-select-lg" name="curso" id="cursos" required>
+                            <option value="" disabled selected>Selecione uma área</option>
+                            <option value="Empresarial">Empresarial</option>
+                            <option value="Direito Familiar">Direito Familiar</option>
+                            <option value="Adiministrativo">Adiministrativo</option>
+                            <option value="Direito Civil">Direito Civil</option>
+                            <option value="Previdenciário">Previdenciário</option>
+                            <option value="Bens">Bens</option>
+                            <option value="Propriedade Intelectual">Propriedade Intelectual</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" name="aceite_politica" class="form-check-input" id="privacy-policy" required />
+                        <label class="form-check-label" for="privacy-policy">
+                            Concordo com a Política de Privacidade.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-light btn-lg w-100 fw-bold">ENVIAR</button>
+                </form>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="bg-dark text-white pt-5">
-      <div class="container">
-          <div class="row g-4"> <!-- Adicionado espaçamento entre colunas -->
-  
-              <!-- Seção 1 (Sobre/Institucional) -->
-              <div class="col-md-6 col-lg-3 mb-4">
-                  <h5 class="text-uppercase mb-3" style="color: #6D3628;">Sobre Nós</h5>
-                  <ul class="list-unstyled">
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Quem Somos</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Missão e Valores</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Equipe</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Documentos</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Seção 2 (Áreas de Atuação) -->
-              <div class="col-md-6 col-lg-3 mb-4">
-                  <h5 class="text-uppercase mb-3" style="color: #6D3628;">Áreas de Atuação</h5>
-                  <ul class="list-unstyled">
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Direito Empresarial</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Direito Civil</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Direito Administrativo</a></li>
-                      <li class="mb-2"><a href="#" class="text-white text-decoration-none">Direito Previdenciário</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Seção 3 (Contato) -->
-              <div class="col-md-6 col-lg-3 mb-4">
-                  <h5 class="text-uppercase mb-3" style="color: #6D3628;">Contato</h5>
-                  <div class="mb-3">
-                      <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Endereço Completo</p>
-                      <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i>(XX) XXXX-XXXX</p>
-                      <p class="mb-1"><i class="bi bi-whatsapp me-2"></i>(XX) XXXXX-XXXX</p>
-                      <p class="mb-0"><i class="bi bi-envelope-fill me-2"></i>email@exemplo.com</p>
-                  </div>
-              </div>
-  
-              <!-- Seção 4 (Redes Sociais) -->
-              <div class="col-md-6 col-lg-3 mb-4">
-                  <h5 class="text-uppercase mb-3" style="color: #6D3628;">Redes Sociais</h5>
-                  <div class="d-flex gap-3">
-                      <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-                      <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-                      <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
-                      <a href="#" class="text-white fs-4"><i class="bi bi-whatsapp"></i></a>
-                  </div>
-              </div>
-          </div>
-  
-          <!-- Divisor -->
-          <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
-  
-          <!-- Copyright -->
-          <div class="row">
-              <div class="col-md-12 text-center py-2">
-                  <p class="mb-0 small">
-                      © 2024 Advocacia Araújo e Zanina - Todos os direitos reservados<br>
-                      Desenvolvido por Davi e Daniel
-                  </p>
-              </div>
-          </div>
-      </div>
-  </footer>
+<a href="https://wa.me/5561981780313" class="whatsapp-float-button" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-whatsapp"></i>
+</a>
 
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer class="bg-dark text-white pt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <h5 class="text-uppercase mb-3" style="color: #6D3628;">Sobre Nós</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#sobre-escritorio" class="text-white text-decoration-none">Quem Somos</a></li>
+                    <li class="mb-2"><a href="#missao-valores" class="text-white text-decoration-none">Missão e Valores</a></li>
+                    <li class="mb-2"><a href="#Profissionais" class="text-white text-decoration-none">Equipe</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <h5 class="text-uppercase mb-3" style="color: #6D3628;">Áreas de Atuação</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="areas-atuacao.html#Empresarial" class="text-white text-decoration-none">Direito Empresarial</a></li>
+                    <li class="mb-2"><a href="areas-atuacao.html#Civil" class="text-white text-decoration-none">Direito Civil</a></li>
+                    <li class="mb-2"><a href="areas-atuacao.html#Administrativo" class="text-white text-decoration-none">Direito Administrativo</a></li>
+                    <li class="mb-2"><a href="areas-atuacao.html#Previdenciário" class="text-white text-decoration-none">Direito Previdenciário</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <h5 class="text-uppercase mb-3" style="color: #6D3628;">Contato</h5>
+                <div class="mb-3">
+                    <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>[Seu Endereço Completo]</p>
+                    <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i>(61) 98178-0313</p>
+                    <p class="mb-1"><i class="bi bi-whatsapp me-2"></i>(61) 98178-0313</p>
+                    <p class="mb-0"><i class="bi bi-envelope-fill me-2"></i>[seu-email@exemplo.com]</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <h5 class="text-uppercase mb-3" style="color: #6D3628;">Redes Sociais</h5>
+                <div class="d-flex gap-3">
+                    <a href="https://www.instagram.com/araujozanina.adv?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                    <a href="https://wa.me/5561981780313" class="text-white fs-4"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+        <div class="row">
+            <div class="col-md-12 text-center py-2">
+                <p class="mb-0 small">
+                    © 2024 Advocacia Araújo e Zanina - Todos os direitos reservados<br>
+                    Desenvolvido por Davi e Daniel
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/crud.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artigos",
+  "info": {
+    "singularName": "artigo",
+    "pluralName": "artigos",
+    "displayName": "Artigos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Conteudo": {
+      "type": "richtext"
+    },
+    "image_capa": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
