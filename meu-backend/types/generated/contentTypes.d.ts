@@ -441,10 +441,16 @@ export interface ApiArtigoArtigo extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    autor_descricao: Schema.Attribute.String;
+    autor_foto: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    autor_nome: Schema.Attribute.String;
     Conteudo: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    data_publicacao: Schema.Attribute.Date;
     image_capa: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -455,6 +461,7 @@ export interface ApiArtigoArtigo extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    tempo_leitura: Schema.Attribute.String;
     Titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
