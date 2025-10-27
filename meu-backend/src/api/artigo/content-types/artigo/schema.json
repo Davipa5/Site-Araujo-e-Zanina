@@ -26,6 +26,28 @@
         "videos",
         "audios"
       ]
+    },
+    "autor_nome": {
+      "type": "string"
+    },
+    "autor_descricao": {
+      "type": "string"
+    },
+    "autor_foto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "data_publicacao": {
+      "type": "date"
+    },
+    "tempo_leitura": {
+      "type": "string"
     }
   }
 }
