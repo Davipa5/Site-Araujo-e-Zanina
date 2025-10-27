@@ -170,3 +170,53 @@
 }
 
 /* ...existing code... */
+
+:root{
+    --primary-color: #6D3628;
+    --primary-hover: #9e5239;
+}
+
+/* Títulos e subtítulos */
+.titulo-areas,
+.sobre-nos-title,
+.missao-valores-section h3,
+.valor-item h3 {
+    color: var(--primary-color);
+}
+
+/* Ícones dos blocos */
+.valor-item i,
+.missao-valores-section i {
+    color: var(--primary-color);
+}
+
+/* Links das áreas (mantém o padrão do primeiro modelo) */
+.link-area {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.link-area:hover,
+.valor-item a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Navbar: mantém a cor de destaque ao passar o mouse */
+.navbar .nav-link {
+    color: rgba(0,0,0,0.8);
+}
+.navbar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Botão flutuante WhatsApp (se usado) */
+.whatsapp-float-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
