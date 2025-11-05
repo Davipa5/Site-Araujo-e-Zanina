@@ -205,3 +205,100 @@ footer .small {
         justify-content: center; /* Centraliza os ícones de redes sociais */
     }
 }
+
+.navbar-brand img,
+.logo-img {
+    height: 100px;
+    width: auto;
+}
+
+/* Centralização do menu no desktop (mantém comportamento atual) */
+.navbar-nav.mx-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Links da navbar */
+.navbar .nav-link {
+    color: rgba(0,0,0,0.8);
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Ícones sociais à direita */
+.navbar-nav.ms-auto {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+/* Ajustes do dropdown para desktop */
+.navbar .dropdown-menu .dropdown-item {
+    white-space: nowrap;
+}
+
+/* ===== Comportamento mobile (corrige empilhamento/objetos grandes) ===== */
+@media (max-width: 768px) {
+    /* reduzir logo no mobile colapsado */
+    .navbar-brand img,
+    .logo-img {
+        height: 72px !important;
+    }
+
+    /* menu colapsado deve ter fundo branco e ficar em coluna */
+    .navbar-collapse {
+        background: #fff;
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-collapse .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        width: 100%;
+        position: static;
+        transform: none;
+        left: auto;
+    }
+
+    /* remover posicionamento absoluto do menu central no mobile */
+    .navbar-nav.mx-auto {
+        position: static;
+        left: auto;
+        transform: none;
+        justify-content: flex-start;
+    }
+
+    /* tornar dropdown estático dentro da coluna (não sobrepor) */
+    .navbar .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin: .25rem 0 0 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    /* reduzir tamanho dos links para não quebrar o layout */
+    .navbar .nav-link {
+        font-size: 1rem !important;
+        padding: .6rem 1rem;
+    }
+
+    /* alinhar a lista de ícones sociais dentro do menu */
+    .navbar-collapse .navbar-nav.ms-auto {
+        margin-top: .5rem;
+        justify-content: flex-start;
+        gap: .75rem;
+    }
+}
+
+/* evita overflow horizontal quando abrir menu */
+body {
+    overflow-x: hidden;
+}

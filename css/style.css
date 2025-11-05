@@ -74,6 +74,36 @@
     opacity: 1;
 }
 
+/* Estilos adicionais para a seção "Na Mídia" */
+.na-midia-section .carousel-item {
+    padding: 20px;
+}
+
+.na-midia-section .carousel-control-prev,
+.na-midia-section .carousel-control-next {
+    width: 5%;
+    opacity: 0.9;
+}
+
+.na-midia-section .midia-card {
+    padding: 15px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.na-midia-section .midia-card:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .na-midia-section .carousel-item .col-md-4 {
+        margin-bottom: 20px;
+    }
+}
+
 
 /* ============================================= */
 /* 6. ESTILOS "ARTIGOS" */
@@ -219,4 +249,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.navbar .nav-link {
+    font-family: inherit;               /* usa a mesma fonte do restante da página */
+    font-size: 1.05rem !important;      /* mesmo tamanho do styleAreas (aprox. 16-18px) */
+    color: rgba(0,0,0,0.8) !important;
+    padding: 0.5rem 1rem !important;
+}
+
+
+.navbar .nav-link[style] {
+    font-size: 1.05rem !important;
 }
