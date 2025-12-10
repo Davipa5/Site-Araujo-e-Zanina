@@ -1,5 +1,5 @@
 {
-  "name": "meu-backend",
+  "name": "my-blog-backend",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -15,10 +15,10 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.29.0",
-    "@strapi/plugin-users-permissions": "5.29.0",
-    "@strapi/strapi": "5.29.0",
-    "better-sqlite3": "11.3.0",
+    "@strapi/plugin-cloud": "5.31.2",
+    "@strapi/plugin-users-permissions": "5.31.2",
+    "@strapi/strapi": "5.31.2",
+    "better-sqlite3": "12.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -31,11 +31,11 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=18.0.0 <=22.x.x",
+    "node": ">=20.0.0 <=24.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "9c33ed4c-2131-40c1-9f44-b043a9749131",
-    "installId": "5ff4bddd0a04b0a50621826e0511be56b92804ae87a625dcff617f131cf13b71"
+    "uuid": "b68a54ad-0dd8-428a-9233-92f81b43ceab",
+    "installId": "3d33a8bfe078028e4c14f47e295d6ba4b824124a2f8860b66c461f1899595dc3"
   }
 }

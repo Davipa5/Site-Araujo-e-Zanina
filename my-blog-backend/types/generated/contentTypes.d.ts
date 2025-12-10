@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiArtigoArtigo extends Struct.CollectionTypeSchema {
   collectionName: 'artigos';
   info: {
-    displayName: 'Artigos';
+    displayName: 'Artigo';
     pluralName: 'artigos';
     singularName: 'artigo';
   };
@@ -441,12 +441,12 @@ export interface ApiArtigoArtigo extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    autor_descricao: Schema.Attribute.String;
+    autor_descricao: Schema.Attribute.Text;
     autor_foto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     autor_nome: Schema.Attribute.String;
-    Conteudo: Schema.Attribute.RichText;
+    Conteudo: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -462,6 +462,37 @@ export interface ApiArtigoArtigo extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     tempo_leitura: Schema.Attribute.String;
+    Titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMidiaMidia extends Struct.CollectionTypeSchema {
+  collectionName: 'midias';
+  info: {
+    displayName: 'Midia';
+    pluralName: 'midias';
+    singularName: 'midia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Foto: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::midia.midia'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Resumo: Schema.Attribute.Text;
     Titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -924,6 +955,7 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
+    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -979,6 +1011,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::artigo.artigo': ApiArtigoArtigo;
+      'api::midia.midia': ApiMidiaMidia;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

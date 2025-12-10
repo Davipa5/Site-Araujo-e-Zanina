@@ -262,3 +262,80 @@
 .navbar .nav-link[style] {
     font-size: 1.05rem !important;
 }
+
+
+/* ============================================= */
+/* ESTILOS PERSONALIZADOS DOS CARROSSÉIS (NOVO) */
+/* ============================================= */
+
+/* Posicionamento das setas laterais */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 1; /* Garante que fiquem totalmente visíveis, não transparentes */
+    z-index: 10; /* Garante que fiquem acima dos cards */
+}
+
+/* Estilo do ícone de navegação (A "bolinha" com a seta) */
+.carousel-nav-icon {
+    background-color: #6D3628; /* Cor primária do site */
+    color: #ffffff;
+    border-radius: 50%; /* Faz ficar redondo */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Sombra suave para dar profundidade */
+    transition: all 0.3s ease;
+    border: 2px solid white; /* Borda branca fina para destaque */
+}
+
+/* Efeito ao passar o mouse na seta */
+.carousel-nav-icon:hover {
+    background-color: #4a251b; /* Um tom mais escuro do marrom */
+    transform: scale(1.1); /* Aumenta levemente */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* --- Estilos dos Cards dentro do Carrossel --- */
+
+.carousel-inner .card {
+    border: none; /* Remove borda padrão cinza */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito "Levitar" ao passar o mouse no Card */
+.carousel-inner .card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Títulos dos Cards (mantendo a identidade) */
+.carousel-inner .card-title {
+    color: #6D3628;
+    font-weight: 600;
+}
+
+/* Botões "Acessar" e "Leia Mais" dentro dos Slides */
+.carousel-inner .btn-outline-dark {
+    color: #6D3628;
+    border-color: #6D3628;
+    font-weight: 500;
+}
+
+.carousel-inner .btn-outline-dark:hover {
+    background-color: #6D3628;
+    color: #ffffff;
+    border-color: #6D3628;
+}
+
+/* Responsividade: Oculta as setas em telas muito pequenas (celulares)
+   para não ficar em cima do texto, permitindo o swipe */
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+}

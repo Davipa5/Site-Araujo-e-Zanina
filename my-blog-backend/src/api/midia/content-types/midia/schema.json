@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "midias",
+  "info": {
+    "singularName": "midia",
+    "pluralName": "midias",
+    "displayName": "Midia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Resumo": {
+      "type": "text"
+    },
+    "Foto": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

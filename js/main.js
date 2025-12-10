@@ -1,86 +1,176 @@
-// Aguarda o carregamento completo do DOM
+// =============================================================
+// Bloco de Execução Principal
+// =============================================================
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Carrega Artigos (Index)
     if (document.getElementById('artigos-container')) {
         carregarArtigosIndex(); 
-    } else if (document.getElementById('artigo-titulo')) {
+    } 
+
+    // 2. Carrega Na Mídia (Index)
+    if (document.getElementById('midia-container')) {
+        carregarMidia();
+    }
+
+    // 3. Carrega Artigo Individual
+    if (document.getElementById('artigo-titulo')) {
         carregarArtigoIndividualWorkaround(); 
     }
 });
 
+
 // =============================================================
-// FUNÇÃO PARA A PÁGINA INICIAL (INDEX.HTML) - ATUALIZADA PARA IMAGEM
+// FUNÇÃO AUXILIAR: Renderiza Itens em Formato de Carrossel Bootstrap
+// =============================================================
+function renderizarCarrossel(itens, containerId, criarCardHtml) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    container.innerHTML = ''; // Limpa loader
+    
+    if (!itens || itens.length === 0) {
+        container.innerHTML = '<div class="carousel-item active"><p class="text-center col-12 p-5 text-muted">Nenhum item encontrado.</p></div>';
+        return;
+    }
+
+    // Configuração: 3 itens por slide em desktop
+    const itensPorSlide = 3;
+    let isActive = true; 
+
+    // Loop para criar os grupos (slides)
+    for (let i = 0; i < itens.length; i += itensPorSlide) {
+        const grupoItens = itens.slice(i, i + itensPorSlide);
+        
+        // Cria o elemento do Slide (carousel-item)
+        const slideDiv = document.createElement('div');
+        slideDiv.className = `carousel-item ${isActive ? 'active' : ''}`;
+        isActive = false; 
+
+        // Cria a linha (row) dentro do slide
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'row g-4 justify-content-center'; 
+
+        // Adiciona os cards ao slide
+        grupoItens.forEach(item => {
+            const cardHtml = criarCardHtml(item); 
+            const colDiv = document.createElement('div');
+            colDiv.className = 'col-md-6 col-lg-4'; 
+            colDiv.innerHTML = cardHtml;
+            rowDiv.appendChild(colDiv);
+        });
+
+        slideDiv.appendChild(rowDiv);
+        container.appendChild(slideDiv);
+    }
+}
+
+
+// =============================================================
+// FUNÇÃO: Carregar "Na Mídia" (Com Carrossel)
+// =============================================================
+async function carregarMidia() {
+    const API_URL = 'http://localhost:1337';
+    const endpoint = `${API_URL}/api/midias?populate=*`; 
+    
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error(`Erro API: ${response.statusText}`);
+        const data = await response.json();
+        
+        // Função que desenha o card específico de Mídia
+        const criarCardMidia = (item) => {
+            const dados = item.attributes || item;
+            const { Titulo: titulo, Resumo: resumo, Link: linkUrl, Foto: fotoRaw } = dados;
+            
+            let imageUrl = 'images/artigo-placeholder.jpg';
+            
+            // Lógica robusta para pegar a imagem (Array ou Objeto)
+            const fotoObj = Array.isArray(fotoRaw) ? fotoRaw[0] : fotoRaw;
+            if (fotoObj) {
+                if (fotoObj.url) imageUrl = API_URL + fotoObj.url;
+                else if (fotoObj.attributes?.url) imageUrl = API_URL + fotoObj.attributes.url;
+                else if (fotoObj.data?.attributes?.url) imageUrl = API_URL + fotoObj.data.attributes.url;
+            }
+
+            return `
+                <div class="card h-100 shadow-sm border-0" style="min-height: 350px;">
+                    <a href="${linkUrl || '#'}" target="_blank" class="text-decoration-none">
+                        <img src="${imageUrl}" class="card-img-top" alt="${titulo}" style="height: 200px; object-fit: cover;"> 
+                        <div class="card-body text-center d-flex flex-column"> 
+                            <h5 class="card-title text-truncate" style="color: #6D3628;">${titulo || 'Sem Título'}</h5>
+                            <p class="card-text text-muted small flex-grow-1" style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">${resumo || ''}</p> 
+                            <button class="btn btn-sm btn-outline-dark mt-auto" style="border-color: #6D3628; color: #6D3628;">Acessar</button>
+                        </div>
+                    </a>
+                </div>
+            `;
+        };
+
+        renderizarCarrossel(data.data, 'midia-container', criarCardMidia);
+
+    } catch (error) {
+        console.error('Erro ao buscar mídias:', error);
+        document.getElementById('midia-container').innerHTML = '<p class="text-center col-12 text-danger">Erro ao carregar mídia.</p>';
+    }
+}
+
+
+// =============================================================
+// FUNÇÃO: Carregar Artigos (Com Carrossel)
 // =============================================================
 async function carregarArtigosIndex() {
-    const container = document.getElementById('artigos-container');
-    if (!container) return; 
-
     const API_URL = 'http://localhost:1337';
-    // Endpoint para listar com populate da capa
-    const endpoint = `${API_URL}/api/artigos?populate=image_capa`; 
+    // Removemos o limite de 3 para permitir o carrossel navegar por todos
+    const endpoint = `${API_URL}/api/artigos?populate=image_capa&sort=createdAt:desc`; 
 
     try {
         const response = await fetch(endpoint);
-        if (!response.ok) throw new Error(`Erro API (Index): ${response.statusText}`);
-
+        if (!response.ok) throw new Error(`Erro API: ${response.statusText}`);
         const data = await response.json();
-        container.innerHTML = '';
-        const artigosRecentes = data.data.slice(0, 3);
 
-        if (artigosRecentes.length === 0) {
-            container.innerHTML = '<p class="text-center col-12">Nenhum artigo publicado.</p>';
-            return;
-        }
-
-        artigosRecentes.forEach(artigo => {
+        // Função que desenha o card específico de Artigo
+        const criarCardArtigo = (artigo) => {
             const id = artigo.id;
-            const { Titulo: titulo, Conteudo: conteudo, autor_nome, image_capa } = artigo; 
+            const item = artigo.attributes || artigo; 
+            const { Titulo: titulo, Conteudo: conteudo, autor_nome, image_capa } = item;
+            
             const resumo = (conteudo || '').substring(0, 100).replace(/[#*_]/g, '') + '...';
             const nomeAutor = autor_nome || "Autor Desconhecido";
             
-            let previewImageUrl = 'images/artigo-placeholder.jpg'; 
-            // ===============================
-            // CORREÇÃO INDEX: Acessa a URL da imagem da forma correta
-            // Primeiro checa o caminho V4 completo, depois o caminho simplificado
-            // ===============================
-            if (image_capa && image_capa.data && image_capa.data.attributes && image_capa.data.attributes.url) { // Caminho V4 padrão
-                 previewImageUrl = API_URL + image_capa.data.attributes.url;
-            } else if (image_capa && image_capa.url) { // Caminho simplificado (baseado nos seus logs)
-                 previewImageUrl = API_URL + image_capa.url;
-            } else {
-                 console.warn(`Preview ID ${id}: Não foi possível encontrar URL em image_capa. Dados:`, image_capa);
-            }
+            let previewImageUrl = 'images/artigo-placeholder.jpg';
+            if (image_capa && image_capa.data && image_capa.data.attributes) previewImageUrl = API_URL + image_capa.data.attributes.url;
+            else if (image_capa && image_capa.url) previewImageUrl = API_URL + image_capa.url;
 
-
-            const cardElement = document.createElement('div');
-            cardElement.className = 'col-md-6 col-lg-4';
-            cardElement.innerHTML = `
+            return `
                 <div class="card article-card h-100 shadow-sm">
                      <img src="${previewImageUrl}" class="card-img-top" alt="${titulo}" style="height: 200px; object-fit: cover;"> 
                     <div class="card-body d-flex flex-column"> 
-                        <h5 class="card-title" style="color: #6D3628;">${titulo}</h5>
+                        <h5 class="card-title text-truncate" style="color: #6D3628;">${titulo}</h5>
                         <p class="card-text text-muted small mb-2">Por: ${nomeAutor}</p> 
-                        <p class="card-text text-muted flex-grow-1">${resumo}</p> 
+                        <p class="card-text text-muted flex-grow-1 small">${resumo}</p> 
                         <a href="artigo.html?id=${id}" class="btn btn-outline-dark mt-auto" style="border-color: #6D3628; color: #6D3628;">Leia Mais</a>
                     </div>
                 </div>
             `;
-            container.appendChild(cardElement);
-        });
+        };
+
+        renderizarCarrossel(data.data, 'artigos-container', criarCardArtigo);
 
     } catch (error) {
-        console.error('Erro ao buscar artigos (index):', error);
-        container.innerHTML = '<p class="text-center col-12 text-danger">Falha ao carregar previews.</p>';
+        console.error('Erro ao buscar artigos:', error);
+        document.getElementById('artigos-container').innerHTML = '<p class="text-center col-12 text-danger">Falha ao carregar artigos.</p>';
     }
 }
 
+
 // =============================================================
-// FUNÇÃO PARA A PÁGINA INDIVIDUAL (ARTIGO.HTML) - WORKAROUND COM CORREÇÃO FINAL
+// FUNÇÃO PARA ARTIGO INDIVIDUAL (MANTIDA IGUAL AO ORIGINAL)
 // =============================================================
 async function carregarArtigoIndividualWorkaround() {
     const params = new URLSearchParams(window.location.search);
     const artigoIdParam = params.get('id'); 
 
-    // Seleciona elementos 
     const tituloEl = document.getElementById('artigo-titulo');
     const conteudoEl = document.getElementById('artigo-conteudo');
     const dataEl = document.getElementById('artigo-data');
@@ -92,7 +182,8 @@ async function carregarArtigoIndividualWorkaround() {
     const autorSectionEl = document.querySelector('.author-section');
     const sumarioNavEl = document.getElementById('sumario-nav'); 
 
-    if (!artigoIdParam || !tituloEl || !conteudoEl || !sumarioNavEl) { /* ... */ return; }
+    if (!artigoIdParam || !tituloEl || !conteudoEl || !sumarioNavEl) { return; }
+    
     const artigoId = parseInt(artigoIdParam, 10); 
     const API_URL = 'http://localhost:1337';
     const endpoint = `${API_URL}/api/artigos?populate=*`; 
@@ -101,77 +192,64 @@ async function carregarArtigoIndividualWorkaround() {
         const response = await fetch(endpoint);
         if (!response.ok) throw new Error(`Erro lista: ${response.statusText}`);
         const data = await response.json();
-        const artigo = data.data.find(a => a.id === artigoId);
-        if (!artigo) throw new Error(`Artigo ID ${artigoId} não encontrado.`);
         
-        console.log("DADOS COMPLETOS DO ARTIGO:", JSON.stringify(artigo, null, 2));
-
-        // --- Preenche o HTML ---
+        const artigoResult = data.data.find(a => a.id === artigoId);
+        if (!artigoResult) throw new Error(`Artigo ID ${artigoId} não encontrado.`);
+        
+        const artigo = artigoResult.attributes || artigoResult;
+        
         document.title = (artigo.Titulo || "Artigo") + " - Advocacia Araújo e Zanina";
         tituloEl.innerText = artigo.Titulo || "Artigo sem título";
         if (dataEl) dataEl.innerText = artigo.data_publicacao ? `Publicado em: ${new Date(artigo.data_publicacao).toLocaleDateString('pt-BR')}` : "";
         if (tempoEl) tempoEl.innerText = artigo.tempo_leitura ? `Tempo de leitura: ${artigo.tempo_leitura}` : "";
 
-        // ===============================
-        // CORREÇÃO FINAL - Imagem da Capa: Tenta o caminho simplificado primeiro
-        // ===============================
+        // Imagem da Capa
         let capaUrl = null;
-        if (artigo.image_capa && artigo.image_capa.url) { // Tenta o caminho direto primeiro
+        if (artigo.image_capa && artigo.image_capa.url) { 
              capaUrl = API_URL + artigo.image_capa.url;
-             console.log("Capa encontrada via image_capa.url");
-        } 
-        // Fallback para o caminho V4 completo (caso a estrutura mude)
-        else if (artigo.image_capa && artigo.image_capa.data && artigo.image_capa.data.attributes && artigo.image_capa.data.attributes.url) { 
+        } else if (artigo.image_capa && artigo.image_capa.data && artigo.image_capa.data.attributes && artigo.image_capa.data.attributes.url) { 
              capaUrl = API_URL + artigo.image_capa.data.attributes.url;
-             console.log("Capa encontrada via image_capa.data.attributes.url");
         }
 
-        if (capaEl && capaUrl) {
+        if (capaEl) {
             capaEl.style.display = 'block'; 
-            capaEl.src = capaUrl; 
-            capaEl.alt = artigo.Titulo || "Capa do Artigo"; 
-            console.log("SUCESSO CAPA:", capaEl.src); 
-        } else if (capaEl) {
-             capaEl.style.display = 'block'; 
-             capaEl.src = 'images/artigo-placeholder.jpg'; 
-             console.warn("FALHA CAPA. Dados recebidos:", artigo.image_capa); 
+            if (capaUrl) {
+                capaEl.src = capaUrl; 
+                capaEl.alt = artigo.Titulo || "Capa do Artigo"; 
+            } else {
+                capaEl.src = 'images/artigo-placeholder.jpg'; 
+            }
         }
 
-        // ===============================
-        // CORREÇÃO FINAL - Foto do Autor: Tenta o caminho simplificado primeiro
-        // ===============================
+        // Autor
         if(autorNomeEl) autorNomeEl.innerText = artigo.autor_nome || ""; 
         if(autorDescEl) autorDescEl.innerText = artigo.autor_descricao || "";
         if (autorSectionEl) autorSectionEl.style.display = 'block'; 
 
         let autorFotoUrl = null;
-         if (artigo.autor_foto && artigo.autor_foto.url) { // Tenta o caminho direto
+        if (artigo.autor_foto && artigo.autor_foto.url) { 
             autorFotoUrl = API_URL + artigo.autor_foto.url;
-            console.log("Foto Autor encontrada via autor_foto.url");
-        } 
-        // Fallback para o caminho V4 completo
-        else if (artigo.autor_foto && artigo.autor_foto.data && artigo.autor_foto.data.attributes && artigo.autor_foto.data.attributes.url) {
+        } else if (artigo.autor_foto && artigo.autor_foto.data && artigo.autor_foto.data.attributes && artigo.autor_foto.data.attributes.url) {
             autorFotoUrl = API_URL + artigo.autor_foto.data.attributes.url;
-             console.log("Foto Autor encontrada via autor_foto.data.attributes.url");
         }
         
-        if (autorFotoEl && autorFotoUrl) {
-            autorFotoEl.src = autorFotoUrl; 
-             autorFotoEl.alt = artigo.autor_nome || "Foto do Autor"; 
-             console.log("SUCESSO FOTO AUTOR:", autorFotoEl.src); 
-        } else if (autorFotoEl) {
-             autorFotoEl.src = 'images/placeholder-autor.png'; 
-             console.warn("FALHA FOTO AUTOR. Dados recebidos:", artigo.autor_foto);
+        if (autorFotoEl) {
+            if (autorFotoUrl) {
+                autorFotoEl.src = autorFotoUrl; 
+                autorFotoEl.alt = artigo.autor_nome || "Foto do Autor"; 
+            } else {
+                autorFotoEl.src = 'images/placeholder-autor.png'; 
+            }
         }
 
-        // Converte Conteúdo e Gera Sumário (sem alterações aqui)
+        // Markdown -> HTML
         if (typeof showdown !== 'undefined') {
             const converter = new showdown.Converter({headerLevelStart: 2}); 
             converter.setOption('ghCompatibleHeaderId', true); 
             const htmlContent = converter.makeHtml(artigo.Conteudo || "<p>Artigo sem conteúdo.</p>");
             if (conteudoEl) conteudoEl.innerHTML = htmlContent;
             gerarSumario(); 
-        } else { /* ... erro showdown ... */ }
+        }
 
     } catch (error) {
         console.error('Erro ao buscar/processar artigo (workaround):', error); 
@@ -181,7 +259,7 @@ async function carregarArtigoIndividualWorkaround() {
 }
 
 // =============================================================
-// FUNÇÃO PARA GERAR O SUMÁRIO DINAMICAMENTE - Sem alterações
+// FUNÇÃO PARA GERAR O SUMÁRIO DINAMICAMENTE
 // =============================================================
 function gerarSumario() {
     const conteudoEl = document.getElementById('artigo-conteudo');
@@ -189,7 +267,8 @@ function gerarSumario() {
     if (!conteudoEl || !sumarioNavEl) return;
     sumarioNavEl.innerHTML = ''; 
     const headings = conteudoEl.querySelectorAll('h2, h3');
-    if (headings.length === 0) { /* ... sem seções ... */ return; }
+    if (headings.length === 0) { return; }
+
     headings.forEach(heading => {
         const level = heading.tagName.toLowerCase(); 
         const text = heading.textContent;

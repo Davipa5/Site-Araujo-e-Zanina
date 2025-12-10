@@ -4,7 +4,7 @@
   "info": {
     "singularName": "artigo",
     "pluralName": "artigos",
-    "displayName": "Artigos"
+    "displayName": "Artigo"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,7 @@
       "type": "string"
     },
     "Conteudo": {
-      "type": "richtext"
+      "type": "text"
     },
     "image_capa": {
       "type": "media",
@@ -31,7 +31,7 @@
       "type": "string"
     },
     "autor_descricao": {
-      "type": "string"
+      "type": "text"
     },
     "autor_foto": {
       "type": "media",
